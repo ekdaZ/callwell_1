@@ -6,6 +6,7 @@ df = pd.read_excel('book.xlsx')
 for index, row in df.iterrows():
     if len(str(row['Number'])) < 11:
         v = df.iloc[index]
+        
         # print(v)
         w = v.loc['Number']
         w = '44' + str(w)
