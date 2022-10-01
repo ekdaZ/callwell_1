@@ -1,20 +1,28 @@
 import pandas as pd
+import phonenumbers
+from phonenumbers.carrier import name_for_number
+df = pd.read_excel('bookxl.xlsx')
 
-df = pd.read_excel('book.xlsx')
+temp_list = []
 
-# For iteration:
+
 for index, row in df.iterrows():
     if len(str(row['Number'])) < 11:
         v = df.iloc[index]
-        
-        # print(v)
         w = v.loc['Number']
-        w = '44' + str(w)
-        df.loc[[index],'Number'] = int(w)
-        
+        search_up_data = '44' + str(w)
+        df.loc[[index],'Number'] = int(search_up_data)
+    z = df.iloc[index]
+    x = z.loc['Number']
+    search_up_google = '+' + str(x)
+
+    
+    phNumber = search_up_google
+    new_carrier = name_for_number(phonenumbers.parse(phNumber,None),'en')
+    
+    temp_list.append(new_carrier)
+
+df['New Carrier'] = temp_list
 
 
-# print(df.loc[df['Network'] == 'EE'])
-
-# print(df[['Number', 'Network']])
-df.to_excel('modified.xlsx', index = False)
+df.to_csv('modified.csv', index = False)
