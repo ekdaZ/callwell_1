@@ -1,8 +1,28 @@
-<html>
+{% extends 'heading.html' %}
+   {% block body %}
    <body>
-      <form method = "post" enctype = "multipart/form-data">
-         <input type = "file" name = "file" />
-         <input type = "submit" value=Upload />
-      </form>   
+      <div class = 'text-center'>
+         <form method = "post" enctype = "multipart/form-data">
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <input type = "file" class = "btn btn-danger btn-lg" name = "file" />
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br><br>
+            <br>
+            <br>
+            <button type="submit" class="btn btn-danger btn-lg btn-block">Upload</button>
+         </form>
+      </div>   
    </body>
-</html>
+   {% endblock %}
