@@ -5,15 +5,16 @@ import os
 
 
 def traverse(filename):
-    df = pd.read_csv('upload/' + filename + '.csv')
+    df = pd.read_excel('upload/' + filename + '.xlsx')
     temp_list = []
     print('MAIN CHECK')
     for index, row in df.iterrows():
-        # if len(str(row['Number'])) < 11:
-        #     v = df.iloc[index]
-        #     w = v.loc['Number']
-        #     search_up_data = '44' + str(w)
-        #     df.loc[[index],'Number'] = int(search_up_data)
+        if len(str(row['Number'])) < 11:
+            v = df.iloc[index]
+            w = v.loc['Number']
+            search_up_data = '44' + str(w)[:2]
+            print('lkhfbvklhabf')
+            df.loc[[index],'Number'] = int(search_up_data)
         z = df.iloc[index]
         x = z.loc['Number']
         search_up_google = '+' + str(x)
@@ -26,6 +27,8 @@ def traverse(filename):
         except: 
             temp_list.append("Invalid number")
 
+            
+        # ksmd
         
 
     df['New Carrier'] = temp_list

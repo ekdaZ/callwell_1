@@ -39,7 +39,7 @@ def network():
         del new[-1]
         new = ''.join(new)
         traverse(new)
-        os.remove(UPLOAD_PATH + new + '.xlsx')
+        os.remove(UPLOAD_PATH + new + '.csv')
         return render_template('bounce.html',new = new)
         
     else:
